@@ -25,4 +25,5 @@ jobs:
           PUB_KEY: ${{ secrets.PUB_KEY }}
           PRVT_KEY: ${{ secrets.PRVT_KEY }}
           HOST_PRVT_KEY: ${{ secrets.HOST_PRVT_KEY }}
+          PYTHONUNBUFFERED: 1
         run: python setup.py
