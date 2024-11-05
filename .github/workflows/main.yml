@@ -1,0 +1,24 @@
+name: Dynamic Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner_type:
+        description: 'Choose the runner type'
+        required: true
+        default: 'ubuntu-latest'
+        options:
+          - ubuntu-latest
+          - windows-latest
+
+jobs:
+  dynamic_runner_job:
+    # Use the input to determine the runner type
+    runs-on: ${{ inputs.runner_type }}
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      
+      - name: start
+        run: python --version
