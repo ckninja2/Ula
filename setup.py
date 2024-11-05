@@ -212,5 +212,4 @@ for line in process.stderr:
         print(f"found link {link}")
         break
 
-while not os.path.exists(f"{Path.home()}/shut_down.txt"):
-    time.sleep(1)
+time.sleep(100000)
