@@ -105,4 +105,5 @@ for line in process.stderr:
         print(f"found link {link}")
         break
 
-time.sleep(-1)
+while True:
+    time.sleep(10)
