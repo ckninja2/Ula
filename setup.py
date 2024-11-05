@@ -1,10 +1,10 @@
 import base64
 import os
+from pathlib import Path
 import shutil
 import subprocess
 import time
 import urllib.request
-from pathlib import Path
 
 PUB_KEY = base64.b64decode(os.getenv("PUB_KEY")).decode('utf-8')
 PRVT_KEY = base64.b64decode(os.getenv("PRVT_KEY")).decode('utf-8')
@@ -98,9 +98,7 @@ process = subprocess.Popen(
     stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
 )
 
-link = ''
 for line in process.stderr:
-    print(line)
     if ".trycloudflare.com" in line:
         link = line.split()[3]
         print(f"found link {link}")
@@ -108,4 +106,3 @@ for line in process.stderr:
 
 while not os.path.exists(f"{Path.home()}/shut_down.txt"):
     time.sleep(1)
-
