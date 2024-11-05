@@ -20,5 +20,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       
-      - name: start
-        run: python setup.py ${{ inputs.runner_type }}
+      - name: start setup
+        env:
+          PUB_KEY: ${{ secrets.PUB_KEY }}
+          PRVT_KEY: ${{ secrets.PRVT_KEY }}
+          HOST_PRVT_KEY: ${{ secrets.HOST_PRVT_KEY }}
+        run: python setup.py
