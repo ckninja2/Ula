@@ -71,7 +71,7 @@ cloudflared_url = ''
 cloudflared = ''
 if os.getenv('RUNNER_OS') == 'Linux':
     cloudflared_url = 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64'
-    cloudflared = 'cloudflared'
+    cloudflared = os.path.join(os.getcwd(), "cloudflared")
     download_file(cloudflared_url, cloudflared)
     os.chmod(cloudflared, 0o755)
     os.makedirs(os.path.expanduser("~/.ssh"), exist_ok=True)
@@ -81,7 +81,7 @@ if os.getenv('RUNNER_OS') == 'Linux':
         f.write(PRVT_KEY)
 elif os.getenv('RUNNER_OS') == 'Windows':
     cloudflared_url = 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe'
-    cloudflared = 'cloudflared.exe'
+    cloudflared = os.path.join(os.getcwd(), "cloudflared.exe")
     download_file(cloudflared_url, cloudflared)
 
     open_ssh_url = 'https://github.com/PowerShell/Win32-OpenSSH/releases/latest/download/OpenSSH-Win64.zip'
