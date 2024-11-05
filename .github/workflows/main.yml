@@ -21,4 +21,4 @@ jobs:
         uses: actions/checkout@v4
       
       - name: start
-        run: python setup.py
+        run: python setup.py ${{ inputs.runner_type }}
