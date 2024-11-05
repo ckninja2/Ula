@@ -74,6 +74,7 @@ if os.getenv('RUNNER_OS') == 'Linux':
     cloudflared = 'cloudflared'
     download_file(cloudflared_url, cloudflared)
     os.chmod(cloudflared, 0o755)
+    os.makedirs(os.path.expanduser("~/.ssh"), exist_ok=True)
     with open(os.path.expanduser("~/.ssh/authorized_keys"), "w", encoding="utf-8") as f:
         f.write(PUB_KEY)
     with open(os.path.expanduser("~/.ssh/id_rsa"), "w", encoding="utf-8") as f:
