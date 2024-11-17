@@ -12,7 +12,7 @@ def get_google_time():
 @app.route('/')
 def hello():
     requester_ip = request.remote_addr
-    return f"Hello, World! Welcome to Koyeb!\n\n{get_google_time()}\n\n{requester_ip}"
+    return f"Hello, World! Welcome to Koyeb!<br>{get_google_time()}"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
