@@ -1,5 +1,5 @@
 # Use the official Python image.
-FROM python:3.9
+FROM python:latest
 
 # Set the working directory in the container.
 WORKDIR /app
@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy the requirements file into the container and install dependencies.
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN apt-get -y update
 RUN apt install nano sudo ffmpeg wget curl mediainfo mkvtoolnix
 
 # Copy the rest of the application code.
