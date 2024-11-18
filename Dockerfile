@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 RUN apt-get -y update
-RUN apt install nano sudo ffmpeg wget curl mediainfo mkvtoolnix
+RUN apt-get -y install nano sudo ffmpeg wget curl mediainfo mkvtoolnix
 
 # Copy the rest of the application code.
 COPY . .
