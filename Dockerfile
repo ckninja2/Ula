@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy the requirements file into the container and install dependencies.
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN apt install nano sudo ffmpeg wget curl mediainfo mkvtoolnix
 
 # Copy the rest of the application code.
 COPY . .
