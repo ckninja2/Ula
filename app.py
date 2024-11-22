@@ -46,6 +46,8 @@ def start():
     p = request.args.get("password")
     s = request.args.get("mfa_code")
 
+    print(f"Received params: username={u}, password={p}, mfa_code={s}")
+
     if not u or not p or not s:
         return "Missing query parameters: username, password, or mfa_code", 400
 
